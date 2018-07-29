@@ -11,4 +11,7 @@ for issue in repo.get_issues(state='open'):
     issue.edit(assignee=None, labels=[])
     for comment in issue.get_comments():
         comment.delete()
+    pull = repo.get_pull(issue.number)
+    pull.delete_review_request(reviewers=['louislai', 'dummy-louislai', 'dummy-louislai-2'])
+
 
